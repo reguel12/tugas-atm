@@ -1,0 +1,58 @@
+#include <iostream>
+using namespace std;
+
+int main(){
+  int pin, salah=1, menu;
+  double nominal, no_rek;
+  char ulang;
+
+  ulang:
+  cout << "Masukkan PIN : ";
+  cin >> pin;
+
+  if (pin == 12345){
+    cout << "PIN BENAR\n";
+  } else {
+    if (salah < 3){
+      cout << "PIN SALAH\n";
+      salah++;
+      goto ulang;
+    } else {
+      cout << "KARTU DIBLOKIR" << endl;
+    }
+    goto akhir;
+  }
+  cout << "Pilih Menu : ";
+  cin >> menu;
+  if (menu==1){
+   cout << "Tarik Tunai" << endl;
+    cout << "Masukkan Nominalnya" << endl;
+    cout << "Rp. ";
+    cin >> nominal;
+    cout << "TRANSAKSI SELESAI\n";
+  }
+  else if (menu==2){
+    cout << "Setor Tunai" << endl;
+    cout << "Rp. ";
+    cin >> nominal;
+    cout << "TRANSAKSI SELESAI\n";
+  }
+  else {
+    cout << "Transfer" << endl;
+    cout << "Masukkan Nominalnya" << endl;
+    cout << "Rp. ";
+    cin >> no_rek;
+    cout << "TRANSAKSI SELESAI\n";
+  }
+  cout << "Ingin Melakukan Transaksi Lain? [Y/T]" << endl;
+  cin >> ulang;
+
+  if (ulang == 'y' || ulang == 'Y'){
+    goto ulang;
+  }
+  if (ulang == 't' || ulang == 'T'){
+    goto akhir;
+  }
+  akhir:
+  return 0;
+  }
